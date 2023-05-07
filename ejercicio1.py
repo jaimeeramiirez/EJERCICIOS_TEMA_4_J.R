@@ -90,7 +90,6 @@ print("Mensaje 2 descodificado: ", mensaje2_descodificado)
 
 
 #ESPACIO DE MEMORIA
-
 def calcular_espacio_memoria(mensaje_original, mensaje_comprimido):
     espacio_original = len(mensaje_original) * 8  # 8 bits por cada caracter
     espacio_comprimido = len(mensaje_comprimido)
