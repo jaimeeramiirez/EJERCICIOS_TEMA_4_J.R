@@ -37,17 +37,6 @@ def main():
     misiones.append(asignar_recursos("exploracion", "Mustafar", "Tarkin"))
     misiones.append(asignar_recursos("exploracion", "Dantooine", "Palpatine"))
     misiones.append(asignar_recursos("contencion", "Geonosis", "Tarkin"))
-    misiones.append(asignar_recursos("ataque", "Naboo", "Darth Vader"))
-    misiones.append(asignar_recursos("contencion", "Kamino", "Tarkin"))
-    misiones.append(asignar_recursos("ataque", "Coruscant", "Palpatine"))
-    misiones.append(asignar_recursos("exploracion", "Tatooine", "Darth Vader"))
-    misiones.append(asignar_recursos("exploracion", "Lothal", "Tarkin"))
-    misiones.append(asignar_recursos("contencion", "Jakku", "Palpatine"))
-    misiones.append(asignar_recursos("ataque", "Scarif", "Tarkin"))
-    misiones.append(asignar_recursos("contencion", "Bespin", "Darth Vader"))
-    misiones.append(asignar_recursos("ataque", "Alderaan", "Palpatine"))
-    misiones.append(asignar_recursos("exploracion", "Kessel", "Tarkin"))
-    misiones.append(asignar_recursos("exploracion", "Mandalore", "Darth Vader"))
     
     mostrar_recursos(misiones)
 
