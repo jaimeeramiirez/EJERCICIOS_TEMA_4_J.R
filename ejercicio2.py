@@ -32,7 +32,6 @@ def main():
     misiones = [] #Lista de misiones
     misiones.append(asignar_recursos("exploracion", "Hoth", "Darth Vader")) #Agregamos las misiones a la lista
     misiones.append(asignar_recursos("contencion", "Endor", "Palpatine")) 
-    misiones.append(asignar_recursos("ataque", "Yavin IV", "Darth Vader"))
     misiones.append(asignar_recursos("contencion", "Dagobah", "Tarkin"))
     misiones.append(asignar_recursos("ataque", "Kashyyyk", "Tarkin"))
     misiones.append(asignar_recursos("exploracion", "Mustafar", "Tarkin"))
@@ -49,7 +48,6 @@ def main():
     misiones.append(asignar_recursos("ataque", "Alderaan", "Palpatine"))
     misiones.append(asignar_recursos("exploracion", "Kessel", "Tarkin"))
     misiones.append(asignar_recursos("exploracion", "Mandalore", "Darth Vader"))
-    misiones.append(asignar_recursos("contencion", "Starkiller", "Palpatine"))
     
     mostrar_recursos(misiones)
 
