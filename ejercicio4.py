@@ -50,28 +50,23 @@ max_iter = 100
 # Esto se hace porque el método de bisección
 # solo funciona si hay un cambio de signo en la función dentro del intervalo.
 # Si no hay un cambio de signo, el método de bisección no funcionará.
+a, b = -10, 10
+while np.sign(f(a)) == np.sign(f(b)):
+    a -= 1
+    b += 1
 
-def comparar_metodos(f, df, a, b, tol, max_iter):
-    # Encontrar intervalo que contenga una raíz para el método de bisección
-    while np.sign(f(a)) == np.sign(f(b)):
-        a -= 1
-        b += 1
+# Aplicar los métodos de bisección, secante y Newton-Raphson
+sol_biseccion, iter_biseccion = biseccion(f, a, b, tol, max_iter)
+sol_secante, iter_secante = secante(f, a, b, tol, max_iter)
+sol_newton, iter_newton = newton(f, df, (a+b)/2, tol, max_iter)
 
-    # Aplicar los métodos de bisección, secante y Newton-Raphson
-    sol_biseccion, iter_biseccion = biseccion(f, a, b, tol, max_iter)
-    sol_secante, iter_secante = secante(f, a, b, tol, max_iter)
-    sol_newton, iter_newton = newton(f, df, (a+b)/2, tol, max_iter)
+# Imprimir resultados de los métodos
+print("Método\t\tCantidad de iteraciones\tSolución")
+print(f"Bisección\t{iter_biseccion}\t\t\t{sol_biseccion}")
+print(f"Secante\t\t{iter_secante}\t\t\t{sol_secante}")
+print(f"Newton\t\t{iter_newton}\t\t\t{sol_newton}")
 
-    # Imprimir resultados de los métodos
-    print("Método\t\tCantidad de iteraciones\tSolución")
-    print(f"Bisección\t{iter_biseccion}\t\t\t{sol_biseccion}")
-    print(f"Secante\t\t{iter_secante}\t\t\t{sol_secante}")
-    print(f"Newton\t\t{iter_newton}\t\t\t{sol_newton}")
-
-    # Calcular las diferencias de decimales entre los métodos
-    print(f"Diferencia de decimales entre bisección y secante: {abs(sol_biseccion - sol_secante)}") 
-    print(f"Diferencia de decimales entre bisección y Newton: {abs(sol_biseccion - sol_newton)}")
-    print(f"Diferencia de decimales entre secante y Newton: {abs(sol_secante - sol_newton)}")
-
-if __name__ == "__main__":
-    comparar_metodos(f, df, a, b, tol, max_iter)
+# Calcular las diferencias de decimales entre los métodos
+print(f"Diferencia de decimales entre bisección y secante: {abs(sol_biseccion - sol_secante)}") 
+print(f"Diferencia de decimales entre bisección y Newton: {abs(sol_biseccion - sol_newton)}")
+print(f"Diferencia de decimales entre secante y Newton: {abs(sol_secante - sol_newton)}")
