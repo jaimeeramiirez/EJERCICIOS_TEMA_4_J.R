@@ -30,7 +30,7 @@ def mostrar_recursos(misiones):
 
 def main():
     misiones = [] #Lista de misiones
-    misiones.append(asignar_recursos("exploracion", "Hoth", "Darth Vader")) #Agregamos misiones a la lista
+    misiones.append(asignar_recursos("exploracion", "Hoth", "Darth Vader")) #Agregamos las misiones a la lista
     misiones.append(asignar_recursos("contencion", "Endor", "Palpatine")) 
     misiones.append(asignar_recursos("ataque", "Yavin IV", "Darth Vader"))
     misiones.append(asignar_recursos("contencion", "Dagobah", "Tarkin"))
