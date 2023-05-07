@@ -45,31 +45,33 @@ tol = 1e-6
 max_iter = 100
 
 
-# Encuentra un intervalo que contenga una raíz para el método de bisección
-a, b = -10, 10
-while np.sign(f(a)) == np.sign(f(b)):
-    a -= 1
-    b += 1
+# Esta parte del código utiliza un bucle while para encontrar dos valores a y b en el intervalo [-10, 10]
+# que tengan signos opuestos de la función f.
+# Esto se hace porque el método de bisección
+# solo funciona si hay un cambio de signo en la función dentro del intervalo.
+# Si no hay un cambio de signo, el método de bisección no funcionará.
 
-sol_bisection, iter_bisection = biseccion(f, a, b, tol, max_iter)
-sol_secant, iter_secant = secante(f, a, b, tol, max_iter)
-sol_newton_raphson, iter_newton_raphson = newton(f, df, (a + b) / 2, tol, max_iter)
+def comparar_metodos(f, df, a, b, tol, max_iter):
+    # Encontrar intervalo que contenga una raíz para el método de bisección
+    while np.sign(f(a)) == np.sign(f(b)):
+        a -= 1
+        b += 1
 
-print("Método\t\tCantidad de iteraciones\t       Solución")
-print(f"Bisección\t{iter_bisection}\t\t\t{sol_bisection}")
-print(f"Secante\t\t{iter_secant}\t\t\t{sol_secant}")
-print(f"Newton-Raphson\t{iter_newton_raphson}\t\t\t{sol_newton_raphson}")
+    # Aplicar los métodos de bisección, secante y Newton-Raphson
+    sol_biseccion, iter_biseccion = biseccion(f, a, b, tol, max_iter)
+    sol_secante, iter_secante = secante(f, a, b, tol, max_iter)
+    sol_newton, iter_newton = newton(f, df, (a+b)/2, tol, max_iter)
 
-diff_sec_bis = abs(sol_secant - sol_bisection)
-diff_newt_bis = abs(sol_newton_raphson - sol_bisection)
-diff_newt_sec = abs(sol_newton_raphson - sol_secant)
+    # Imprimir resultados de los métodos
+    print("Método\t\tCantidad de iteraciones\tSolución")
+    print(f"Bisección\t{iter_biseccion}\t\t\t{sol_biseccion}")
+    print(f"Secante\t\t{iter_secante}\t\t\t{sol_secante}")
+    print(f"Newton\t\t{iter_newton}\t\t\t{sol_newton}")
 
-print(f"\nDiferencia en decimales:")
-print(f"Secante-Bisección: {diff_sec_bis:.6f}")
-print(f"Newton-Raphson-Bisección: {diff_newt_bis:.6f}")
-print(f"Newton-Raphson-Secante: {diff_newt_sec:.6f}")
+    # Calcular las diferencias de decimales entre los métodos
+    print(f"Diferencia de decimales entre bisección y secante: {abs(sol_biseccion - sol_secante)}") 
+    print(f"Diferencia de decimales entre bisección y Newton: {abs(sol_biseccion - sol_newton)}")
+    print(f"Diferencia de decimales entre secante y Newton: {abs(sol_secante - sol_newton)}")
 
-
-
-
-
+if __name__ == "__main__":
+    comparar_metodos(f, df, a, b, tol, max_iter)
