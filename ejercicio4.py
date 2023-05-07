@@ -70,3 +70,6 @@ print(f"Newton\t\t{iter_newton}\t\t\t{sol_newton}")
 print(f"Diferencia de decimales entre bisección y secante: {abs(sol_biseccion - sol_secante)}") 
 print(f"Diferencia de decimales entre bisección y Newton: {abs(sol_biseccion - sol_newton)}")
 print(f"Diferencia de decimales entre secante y Newton: {abs(sol_secante - sol_newton)}")
+
+#COMO PODEMOS VER EN LOS RESULTADOS, LA DIFERENCIA DE DECIMALES ES PRÁCTICAMENTE NULA.
+#POR LO TANTO, LOS MÉTODOS DE BISECCIÓN, SECANTE Y NEWTON-RAPHSON SON MUY SIMILARES EN ESTE CASO.
