@@ -1,9 +1,10 @@
 import numpy as np
 
-def f(x):
+def f(x): #Función que nos piden evaluar con los métodos de bisección, secante y Newton-Raphson
     return x**3 + x + 16
 
-#Función de bisección
+
+# FUNCIÓN DE BISECCIÓN
 def biseccion(f, a, b, tol, max_iter):
     contador = 0
     while (b - a) / 2 > tol and contador < max_iter:
@@ -17,7 +18,8 @@ def biseccion(f, a, b, tol, max_iter):
         contador += 1
     return c, contador
 
-#Función secante
+
+# FUNCIÓN DE LA SECANTE
 def secante(f, x0, x1, tol, max_iter):
     contador = 0
     while abs(x1 - x0) > tol and contador < max_iter:
@@ -26,8 +28,8 @@ def secante(f, x0, x1, tol, max_iter):
         contador += 1
     return x1, contador
 
-#Función de Newton
 
+# FUNCIÓN DE NEWTON-RAPHSON
 def df(x): #Derivada de la función para el método de Newton
     return 3 * x**2 + 1
 
@@ -40,7 +42,6 @@ def newton(f, f_derivada, x0, tol, max_iter):
         x1 = x0 - f(x0) / df(x0)
         contador += 1
     return x1, contador
-
 tol = 1e-6
 max_iter = 100
 
@@ -55,16 +56,19 @@ while np.sign(f(a)) == np.sign(f(b)):
     a -= 1
     b += 1
 
+
 # Aplicar los métodos de bisección, secante y Newton-Raphson
 sol_biseccion, iter_biseccion = biseccion(f, a, b, tol, max_iter)
 sol_secante, iter_secante = secante(f, a, b, tol, max_iter)
 sol_newton, iter_newton = newton(f, df, (a+b)/2, tol, max_iter)
+
 
 # Imprimir resultados de los métodos
 print("Método\t\tCantidad de iteraciones\tSolución")
 print(f"Bisección\t{iter_biseccion}\t\t\t{sol_biseccion}")
 print(f"Secante\t\t{iter_secante}\t\t\t{sol_secante}")
 print(f"Newton\t\t{iter_newton}\t\t\t{sol_newton}")
+
 
 # Calcular las diferencias de decimales entre los métodos
 print(f"Diferencia de decimales entre bisección y secante: {abs(sol_biseccion - sol_secante)}") 
