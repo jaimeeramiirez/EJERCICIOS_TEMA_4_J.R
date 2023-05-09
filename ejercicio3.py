@@ -85,3 +85,5 @@ g.add_edge('8', "King's Cross")
 print("El camino más corto para ir de King's Cross a Waterloo:", g.dijkstra("King's Cross", 'Waterloo'))
 print("El camino más corto para ir de Victoria Train Station a Liverpool Street Station:", g.dijkstra('Victoria Train Station', 'Liverpool Street Station'))
 print("El camino más corto para ir de St. Pancras a King's Cross:", g.dijkstra('St. Pancras', "King's Cross"))
+
+
